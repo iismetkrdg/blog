@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Papirüsüm</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyProject.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="~/icon.jpeg">
+    <link rel=”apple-touch-icon” href=”~/icon.jpeg”/>
+    <link rel="canonical" href="https://papirusum.com">
+    <meta name="google-site-verification" content="x2yNGGulUQUDjhintMocf8e2qHEGRKVAjq8j_NX3Ixw" />
+    <meta name="robots" content="index,follow">
+    <meta name="Description" content="Yazılar, araştırılıp kısa ve anlaşılır biçimde, yeni medyaya uyumlu içerikler, her zaman güncel bilgiler...">
+    <meta property="og:title" content="Papirusum.com" />
+    <meta property=”og:image” itemprop="image" content="~/image.png" />
+    <meta property=”og:description” content='Yazmayı seven bir grup insan tarafından oluşturulmuş bu internet sitesinde aradığınız her şeyi bulabilirsiniz.' />
+    <meta property=”og:type” content=”website” />
+    <meta property=”og:url” content=”https://papirusum.com” />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460932893994779"
+     crossorigin="anonymous"></script>
+     
+    <style>
+        *
+        {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        #particles-js
+        {
+            width: 100em;
+            height: 250px;
+            background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('https://i.pinimg.com/originals/72/0e/a2/720ea28feb423025b896f0322554eb05.jpg');
+            opacity: 0.9;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    
+
+</head>
+<body>
+    
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo.jpeg" alt="logo" width="180px"></a>
+                
+                <div class=" d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Blog" asp-action="Index">Bloglar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Index">USERS</a>
+                            </li>
+                        }
+                        
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        
+                        
+                        <li class="nav-item d-flex">
+                            <form class="form-group" asp-controller="home" asp-action="search" method="get" hidden id="searchbox">
+                                <input class="form-control" type="text" name="k" placeholder="arama yapın" required>
+                            </form>
+                            <button class="btn nav-link" style="margin-left: 2%;" onclick="getSearchBox();"><i id="searchI" class="bi bi-search"></i></button>
+                        </li>
+                        @if(User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a href="/Account/Logout" class="nav-link text-dark">Logout</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                @RenderBody()
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460932893994779"
+                        crossorigin="anonymous"></script>
+                    <!-- alt -->
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-7460932893994779"
+                        data-ad-slot="1868375311"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                <div class="row">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460932893994779"
+                        crossorigin="anonymous"></script>
+                    <!-- alt -->
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-7460932893994779"
+                        data-ad-slot="1868375311"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+                <div class="row">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460932893994779"
+                        crossorigin="anonymous"></script>
+                    <!-- alt -->
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-7460932893994779"
+                        data-ad-slot="1868375311"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <div id="cookieNotice" class="m-0 col-12 bg-white card" style="display: none;position:fixed;bottom:0;">
+        <div class="content-wrap" >
+            <div class="msg-wrap m-3">
+                <p style="font-size:12px ;">İnternet sitemizden en verimli şekilde faydalanabilmeniz ve kullanıcı deneyimini geliştirebilmek için internet sitemizde çerezler kullanılmaktadır. Çerez kullanımını kabul edebilir, ayarlarınızdan çerezleri silebilir veya engelleyebilirsiniz. Çerezler hakkında detaylı bilgi almak için <a style="color:#115cfa;" asp-controller="home" asp-action="privacy">Gizlilik Metni</a>'ni incelemenizi rica ederiz. <button class=" btn btn-secondary btn-sm m-0" onclick="acceptCookieConsent()">Anladım</button></p>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+        </div>
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+        <a href="https://github.com/iismetkrdg" class="me-4 link-secondary">
+            <i class="bi bi-github"></i>
+        </a>
+        </div>
+        <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <p>
+                <img src="~/img/logo.jpeg" alt="logo" width="150px">
+            </p>
+            <p>
+                <a class="text-dark mt-3" asp-controller="Home" asp-action="privacy">Gizlilik</a>
+            </p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460932893994779"
+                    crossorigin="anonymous"></script>
+                <!-- alt -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-7460932893994779"
+                    data-ad-slot="1868375311"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7460932893994779"
+                    crossorigin="anonymous"></script>
+                <!-- alt -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-7460932893994779"
+                    data-ad-slot="1868375311"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">İLETİŞİM</h6>
+            <p>
+                <i class="bi bi-printer me-3 text-secondary"></i>
+                <a href="mailto:papirusumcom@gmail.com">papirusumcom@@gmail.com</a>
+            </p>
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+        © @DateTime.Now.Year Copyright:
+        <a class="text-reset fw-bold" href="https://papirusum.com">Papirusum.com</a>
+        Tüm hakları saklıdır.
+    </div>
+    <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    // Delete cookie
+    function deleteCookie(cname) {
+        const d = new Date();
+        d.setTime(d.getTime() + (24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=;" + expires + ";path=/";
+    }
+
+    // Read cookie
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    // Set cookie consent
+    function acceptCookieConsent(){
+        deleteCookie('user_cookie_consent');
+        setCookie('user_cookie_consent', 1, 30);
+        document.getElementById("cookieNotice").style.display = "none";
+    }
+    let cookie_consent = getCookie("user_cookie_consent");
+    if(cookie_consent != ""){
+        document.getElementById("cookieNotice").style.display = "none";
+    }else{
+        document.getElementById("cookieNotice").style.display = "block";
+    }
+    </script>
+    
+    <script>
+        function getSearchBox()
+        {
+            var searchButton = document.getElementById("searchI");
+            searchButton.classList.toggle("bi-x-lg");
+            searchButton.classList.toggle("bi-search");
+            var searchbox = document.getElementById("searchbox");
+            if(searchbox.hidden==true)
+            {
+            searchbox.hidden=false;
+            }else{
+                searchbox.hidden=true;
+            };
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+@model IPagedList<MyProject.Models.Blog>
+@using X.PagedList.Web.Common;
+@{
+    ViewData["Title"] = @ViewBag.k+" için sonuçlar";
+    
+}
+<div class="container">
+    <div class="row">
+        <h5 class="text-muted">
+            <b>@ViewBag.k</b> için @ViewBag.sayi sonuç bulundu.
+        </h5>
+    </div>
+    <div class="row">
+        
+        <div>
+            @if (ViewBag.sayi==0)
+            {
+                <p class="alert alert-secondary mt-3 mb-5 text-center">
+                    Bu arama için sonuç bulunamadı.
+                </p>
+            }
+            @foreach (var item in Model)
+            {
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@item.Tarih</h6>
+
+                        <p class="card-text text-muted" style="font-size:12px;">@item.KeyWords</p>
+                        <a asp-controller="Blog" asp-action="Details" asp-route-id="@item.slugfield" class="card-link">Yazıyı oku...</a>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2 offset-md-5 mt-3 mb-5">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Search",
+            new
+                {
+                    ViewBag.k,
+                    page
+            }),
+            new PagedListRenderOptions
+            {
+                LiElementClasses = new string[] { "page-item" },
+                PageClasses = new string[] { "page-link" },
+                Display = PagedListDisplayMode.IfNeeded
+
+                })
+    </div>
+</div>

@@ -1,0 +1,73 @@
+@model MyProject.Models.Blog
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="row">
+    <div>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BlogId" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group"> @Html.LabelFor(model => model.Yazi, htmlAttributes: new { @class = "control-label col-md-2" })  
+                <div ass="col-md-10"> @Html.TextAreaFor(model => model.Yazi,new { @id = "Yazi", @class = "form-control", @rows = "200" }) @Html.ValidationMessageFor(model => model.Yazi, "", new { @class = "text-danger" })  
+                    <script>  
+                        CKEDITOR.replace("Yazi");  
+                    </script> 
+                </div>  
+            </div>  
+            <div class="form-group">
+                <label asp-for="yazar" class="control-label" hidden></label>
+                <input asp-for="yazar" class="form-control" value="@Model.yazar" hidden/>
+                <span asp-validation-for="yazar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tarih" class="control-label"></label>
+                <input asp-for="Tarih" class="form-control" />
+                <span asp-validation-for="Tarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="slugfield" class="control-label"></label>
+                <input asp-for="slugfield" class="form-control" />
+                <span asp-validation-for="slugfield" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="görüntülenmeSayisi" class="control-label" hidden></label>
+                <input asp-for="görüntülenmeSayisi" class="form-control" hidden/>
+                <span asp-validation-for="görüntülenmeSayisi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KeyWords" class="control-label"></label>
+                <input asp-for="KeyWords" class="form-control" />
+                <span asp-validation-for="KeyWords" class="text-danger"></span>
+            
+            <div class="form-group">
+                <label asp-for="yayinda" class="control-label"></label>
+                <input asp-for="yayinda" type="checkbox" class="form-check-input" />
+                <span asp-validation-for="yayinda" class="text-danger"></span>
+            </div>
+            
+            
+            
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>CKEDITOR.replace("Yazi");</script>
+
+
+

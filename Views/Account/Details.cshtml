@@ -1,0 +1,14 @@
+@model MyProject.Models.User
+
+@{
+    ViewData["Title"] = @Html.DisplayFor(model => model.Username);
+    Layout = "_Layout";
+}
+
+<div class="row mt-5 mb-5">
+    <h4> <i class="bi bi-person"></i>@Html.DisplayFor(model => model.Username)</h4><h6>Yazar Bilgileri</h6>
+    <hr>
+    <b>Hakkında</b><p>@Html.DisplayFor(model => model.Aciklama)</p>
+    <hr>
+    <p>Katkıda Bulunduğu İçerik Sayısı : <b>@Html.DisplayFor(model => model.BlogSayisi)</b></p>
+</div>

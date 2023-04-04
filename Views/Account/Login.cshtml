@@ -1,0 +1,35 @@
+@model MyProject.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login to Papirusum.com";
+    Layout = "_LayoutAdmin";
+}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="row">
+            <h2>Login for author</h2>
+        </div>
+        <div class="row">
+            <form asp-controller="Account" asp-action="Login" asp-method="post" asp-route-returnurl="@ViewBag.returnurl?">
+                <div class="form-group">
+                    <label asp-for="username" class="control-label"></label>
+                    <input asp-for="username" class="form-control" />
+                    <span asp-validation-for="username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="password" class="control-label"></label>
+                    <input asp-for="password" type="password" class="form-control" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2 d-grid gap-2">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+                <div class="mt-5 card">
+                    <p class="text-muted p-2 text-center" style="font-size: 70%;">
+                        Unutulan şifreleri <a href="mailto:ismet.k3908@@gmail.com">ismet.k3908@@gmail.com</a>  adresinden isteyin.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

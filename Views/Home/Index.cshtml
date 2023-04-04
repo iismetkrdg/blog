@@ -1,0 +1,55 @@
+﻿@model IPagedList<MyProject.Models.Blog>
+@using X.PagedList.Web.Common;
+
+@{
+    ViewData["Title"] = "Anasayfa";
+    
+}
+
+<div class="container">
+    
+    <div class="row position-relative">
+        <div id="particles-js">
+            <h1 style="position:absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);color: white;">
+                Papirusum.com
+            </h1>
+        </div>
+    </div>
+    <script src="~/js/particles.js"></script>
+    <script src="~/js/app.js"></script>
+    <div class="row">
+
+        <div>
+            @foreach (var item in Model)
+            {
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h3 class="card-title">@item.Name</h3>
+                        <p class="card-subtitle mb-2 text-muted"><i class="bi bi-calendar-date"></i> @item.Tarih</p>
+                        
+                        <p class="card-text text-muted" style="font-size:12px;"><i class="bi bi-blockquote-right"></i> - @item.KeyWords</p>
+                        <a asp-controller="Blog" asp-action="Details" asp-route-id="@item.slugfield" class="btn  btn-secondary"><i class="bi bi-book"></i> Yazıyı Oku</a>
+                    </div>
+                </div>
+
+            }
+            
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2 offset-md-5 mt-3 mb-5">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",
+            new
+                {
+                    page
+            }),
+            new PagedListRenderOptions
+            {
+                LiElementClasses = new string[] { "page-item" },
+                PageClasses = new string[] { "page-link" },
+                Display = PagedListDisplayMode.IfNeeded
+
+                })
+    </div>
+</div>

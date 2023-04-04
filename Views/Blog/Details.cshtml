@@ -1,0 +1,36 @@
+@model MyProject.Models.Blog
+
+@{
+    ViewData["Title"] = @Html.DisplayFor(model => model.Name);
+    Layout = Model.yayinda == true?"_Layout":"_LayoutAdmin";
+}
+
+<div class="row ">
+    <h1>@Html.DisplayFor(model => model.Name)</h1>
+</div>
+<hr class="m-0">
+
+<div class="row">
+    <div class="col-4 mt-2">
+        <a asp-controller="account" asp-action="details" asp-route-id="1" class="text-muted"><i class="bi bi-person-check"></i>
+@Html.DisplayFor(model => model.yazar)</a>
+    </div>
+    
+    <div class="col-8 text-muted" style="text-align: end;">
+        <p>Görüntülenme: @Html.DisplayFor(model => model.görüntülenmeSayisi) <i class="bi bi-eye"></i></p>
+        <p>@Html.DisplayFor(model => model.Tarih) <i class="bi bi-archive"></i></p>
+    </div>
+    
+</div>
+<hr class="m-0">
+<div class="row mt-4">
+    <div class="col-md-12">
+        @Html.Raw(Model.Yazi)
+    </div>
+</div>
+<hr>
+<div class="row mt-2 mb-5">
+    <p style="font-size: 70%;" class="m-0">
+        @Html.DisplayFor(model=>model.KeyWords)
+    </p>
+</div>

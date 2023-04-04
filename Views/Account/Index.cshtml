@@ -1,0 +1,70 @@
+@model IEnumerable<MyProject.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "_LayoutAdmin";
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-secondary"><i class="bi bi-person-fill"></i> Yazar Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+                <button class="btn" onclick="sifre();"><i class="bi bi-eye"></i></button>
+            </th>
+            <th>
+                Yazi Sayısı
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @if(User.IsInRole("admin"))
+                {
+                <input type="password" class="sif" value="@Html.DisplayFor(modelItem => item.Password)">
+                }
+                else
+                {
+                    <input type="password" class="sif" value="sadece adminler görebilir">
+
+                }
+               
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogSayisi)
+            </td>
+            <td>
+                @if (User.IsInRole("admin"))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> 
+                    <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+                }
+                <a asp-action="Details" asp-route-id="@item.UserId">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<script>
+    function sifre()
+    {
+        var boxs = document.getElementsByClassName("sif");
+        for (let i = 0; i < boxs.length; i++) {
+            const element = boxs[i];
+            element.setAttribute("type","text");
+        }
+
+    }
+</script>
